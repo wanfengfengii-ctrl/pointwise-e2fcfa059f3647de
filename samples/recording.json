@@ -1,0 +1,21 @@
+{
+  "stages": [
+    {
+      "playlist": "#EXTM3U\n#EXT-X-VERSION:9\n#EXT-X-TARGETDURATION:2\n#EXT-X-MEDIA-SEQUENCE:40\n#EXT-X-PART-INF:PART-TARGET=1\n#EXT-X-PART:DURATION=1,URI=\"/p0\"\n#EXT-X-PART:DURATION=1,URI=\"/p1\"\n#EXTINF:2,\n/reuse\n",
+      "resources": {
+        "/p0": [{"body": "A40"}],
+        "/p1": [{"body": "B40", "gate": "part"}],
+        "/reuse": [{"body": "A40B40", "gate": "late"}]
+      }
+    },
+    {
+      "playlist": "#EXTM3U\n#EXT-X-MEDIA-SEQUENCE:40\n#EXT-X-SKIP:SKIPPED-SEGMENTS=1\n#EXTINF:1,\n/s41\n",
+      "full_playlist": "#EXTM3U\n#EXT-X-MEDIA-SEQUENCE:40\n#EXTINF:2,\n/reuse\n#EXTINF:1,\n/s41\n",
+      "resources": {"/s41": [{"body": "S41"}]}
+    },
+    {
+      "playlist": "#EXTM3U\n#EXT-X-MEDIA-SEQUENCE:42\n#EXT-X-DISCONTINUITY-SEQUENCE:0\n#EXT-X-DISCONTINUITY\n#EXTINF:1,\n/reuse\n#EXT-X-ENDLIST\n",
+      "resources": {"/reuse": [{"body": "S42"}]}
+    }
+  ]
+}
